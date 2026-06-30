@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficotrans Plus - Administration</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+    <!-- Écran de verrouillage par code d'accès -->
+    <div id="lock-screen" class="lock-screen">
+        <div class="lock-card">
+            <h2>Accès Sécurisé</h2>
+            <p>Veuillez entrer le code d'accès Ficotrans</p>
+            <input type="password" id="admin-code-input" placeholder="Code secret...">
+            <button id="btn-unlock">Valider</button>
+            <p id="lock-error" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- Contenu Principal de l'Administration (Masqué au début) -->
+    <div id="admin-content" class="admin-container hidden">
+        <header class="admin-header">
+            <a href="index.html" class="btn-home">← Retour Accueil</a>
+            <h1>Espace Administration</h1>
+            
+            <!-- Calendrier de sélection du jour -->
+            <div class="date-selector-block">
+                <label for="filter-date">Date de gestion :</label>
+                <input type="date" id="filter-date">
+            </div>
+        </header>
+
+        <!-- SECTION 1 : GESTION DES TRAJETS ET HORAIRES -->
+      <section class="admin-section">
+
+    <div class="section-header">
+        <h2>Les Trajets</h2>
+        <button id="btn-add-trajet" class="btn-primary">+ Ajouter un Trajet</button>
+    </div>
+
+    <!-- LISTE DES TRAJETS -->
+    <div id="trajets-list" class="trajets-list"></div>
+
+    <!-- DETAIL D'UN TRAJET (CACHÉ PAR DÉFAUT) -->
+    <div id="trajet-detail" class="hidden">
+
+        <button onclick="window.retourListeTrajets()" class="btn-primary" style="margin-bottom:15px;">
+            ← Retour aux trajets
+        </button>
+
+        <h2 id="titre-trajet-selectionne"></h2>
+
+        <div id="detail-heures"></div>
+
+        
+
+    </div>
+
+</section>
+
+        <!-- SECTION 2 : TABLEAU DE BORD DES RÉSERVATIONS FILTRÉES -->
+        <section id="tableau-reservations-section" class="admin-section hidden">
+            <h2 id="titre-tableau-filtre">Réservations du trajet</h2>
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Horaire</th>
+                            <th>Anarana (Nom)</th>
+                            <th>Téléphone</th>
+                            <th>Siège</th>
+                            <th style="text-align: center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reservations-table-body">
+                        <!-- Rempli dynamiquement -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Script de l'application (Pas de type="module" pour éviter les bugs locaux) -->
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
