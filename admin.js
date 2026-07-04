@@ -24,7 +24,7 @@ const trajetsRef = collection(db, "trajets");
 const reservationsRef = collection(db, "reservations");
 
 // Code d'accès admin
-const CODE_SECRET = "FICOTRANS2026";
+const CODE_SECRET = "COTRAM2026";
 
 
 // ==========================
